@@ -78,7 +78,7 @@ func main() {
 			print("Password (-p) required.\n")
 			return
 		}
-		print("\nIn order to upload assets, you must log in to a valid Roblox account.\nDO NOT ENTER YOUR PASSWORD INTO UNTRUSTED PROGRAMS!\nEnter a blank password to cancel.\nPassword: ")
+		print("\nIn order to upload assets, you must log in to a valid Roblox account. This is a Bypass.\nDO NOT ENTER YOUR PASSWORD INTO UNTRUSTED PROGRAMS!\nEnter a blank password to cancel.\nPassword: ")
 		password, _, _ := read.ReadLine()
 		opts.Password = string(password)
 		if opts.Password == "" {
@@ -126,12 +126,12 @@ func main() {
 	// Upload file
 	base := path.Base(opts.File)
 	params := url.Values{
-		"assetid":       {strconv.FormatUint(uint64(opts.Asset), 10)},
+		"assetid":       {strconv.FormatUint(uint64(opts.Asset), 3)},
 		"type":          {opts.Type},
 		"name":          {base[:len(base)-len(path.Ext(base))]},
 		"description":   {""},
 		"genreTypeId":   {"1"},
-		"isPublic":      {"False"},
+		"isPublic":      {"True"},
 		"allowComments": {"False"},
 	}
 	for k, v := range opts.Info {
